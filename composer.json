@@ -4,17 +4,18 @@
     "type": "library",
     "license": "MIT",
     "autoload": {
-        "psr-4": {
-            "Pulseframe\\Support\\": "src/"
-        }
+      "psr-4": {
+        "PulseFrame\\Support\\Template\\": "src/"
+      }
     },
     "authors": [
-        {
-            "name": "KingMaj0r"
-        }
+      {
+        "name": "KingMaj0r"
+      }
     ],
     "minimum-stability": "stable",
     "require": {
-        "twig/twig": "^3.10"
+      "twig/twig": "^3.10"
     }
-}
+  }
+  

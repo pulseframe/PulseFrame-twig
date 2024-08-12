@@ -30,7 +30,7 @@ class Engine
    */
   public function render(string $template, array $data = []): string
   {
-    return $this->twig->render($template, $data);
+    return $this->twig->render($template . '.twig', $data);
   }
 
   /**

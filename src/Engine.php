@@ -14,7 +14,7 @@ class Engine
 
   public function __construct($debug = false)
   {
-    $path = array_merge([__DIR__ . '/../../base/src/views/'], (array) Config::get('twig', 'path'));
+    $path = array_merge([__DIR__ . '/../views/'], (array) Config::get('twig', 'path'));
     $loader = new FilesystemLoader($path);
 
     $this->twig = new Environment($loader);

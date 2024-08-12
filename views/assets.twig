@@ -1,0 +1,15 @@
+{% for asset in assets %}
+  {% if not isDev %}
+    {% if asset ends with '.css' %}
+      <link rel="stylesheet" href="{{ is_dev ? asset : '/assets/' ~ asset }}">
+    {% endif %}
+    {% if asset ends with '.js' %}
+      <script src="/assets/{{ asset }}" type="module"></script>
+    {% endif %}
+  {% else %}
+    <script type="module">
+      import({{ assetUrl('/assets/@vite/client') }})
+      import({{ assetUrl('/assets/src/main.js') }})
+    </script>
+  {% endif %}
+{% endfor %}

@@ -21,6 +21,12 @@ class Engine
       $debug = false;
     };
 
+    try {
+      $cache = Config::get('twig', 'cache');
+    } catch (\Exception) {
+      $cache = false;
+    };
+
     $viewPaths = array_merge([__DIR__ . '/../views/'], (array) Config::get('twig', 'path'));
 
     $cacheDir = Storage::path('/framework/template/cache');
@@ -31,7 +37,7 @@ class Engine
     $loader = new FilesystemLoader($viewPaths);
 
     $this->twig = new Environment($loader, [
-      'cache' => $cacheDir,
+      'cache' => $cache ?? $cacheDir,
       'debug' => $debug,
     ]);
 

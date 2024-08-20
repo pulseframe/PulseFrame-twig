@@ -1,0 +1,17 @@
+{% if isDev %}
+  <script type="module">
+    const reactRefreshUrl = "{{ assetUrl('/@react-refresh') }}";
+    
+    import(reactRefreshUrl)
+      .then(module => {
+        const RefreshRuntime = module.default;
+        RefreshRuntime.injectIntoGlobalHook(window);
+        window.$RefreshReg$ = () => {};
+        window.$RefreshSig$ = () => (type) => type;
+        window.__vite_plugin_react_preamble_installed__ = true;
+      })
+      .catch(err => {
+        console.error('Failed to load react-refresh module:', err);
+      });
+  </script>
+{% endif %}

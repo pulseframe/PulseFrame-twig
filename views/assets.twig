@@ -8,6 +8,8 @@
       {% endif %}
   {% endfor %}
 {% else %}
-  <script src="{{ assetUrl('/@vite/client') }}" defer></script>
-  <script src="{{ assetUrl(entry) }}" defer></script>
+  <script type="module">
+    import("{{ assetUrl('/@vite/client') }}")
+    import("{{ assetUrl(entry) }}")
+  </script>
 {% endif %}
